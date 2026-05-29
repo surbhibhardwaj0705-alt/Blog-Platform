@@ -1,0 +1,23 @@
+<div class="card p-4">
+    <h3>Register</h3>
+    <input 
+    type="text"
+    class="form-control mb-2"
+    placeholder="Name"
+    [(ngModel)]="registerData.name"
+    >
+    <input
+    type="email"
+    class="form-control mb-2"
+    placeholder="Email"
+    [(ngModel)]="registerData.email"
+    >
+    <input
+    type= "password"
+    class="form-control mb-2"
+    placeholder="Password"
+    [(ngModel)]="registerData.password"
+    >
+    <button class="btn btn-primary" (click)="register()">Register</button>
+
+</div>

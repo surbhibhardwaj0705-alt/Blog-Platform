@@ -1,0 +1,38 @@
+<select class="form-select mb-3" (change)="filterCategory($event)">
+  <option value="">All Categories</option>
+  <option value="Technology">Technology</option>
+  <option value="Sports">Sports</option>
+  <option value="Education">Education</option>
+</select>
+<div class="card mb-3 p-3"
+    *ngFor="let post of paginatedPosts">
+    <!-- <p>{{post._id}}</p> -->
+    <h4>{{post.title}}</h4>
+    <p>{{post.category}}</p>
+    <div [innerHTML]="post.content"></div>
+    <!-- <p>{{post.content}}</p> -->
+
+  <div class="mt-3" *ngIf="isLoggedIn">
+      <button (click)="editPost(post._id)">
+    Edit
+  </button>
+
+  <button (click)="deletePost(post._id)">
+    Delete
+  </button>
+
+</div>
+</div>
+<button
+    class="btn btn-secondary me-2"
+    (click)="currentPage = currentPage - 1"
+    [disabled]="currentPage === 1"
+  >
+    Previous
+  </button>
+  <button
+    class="btn btn-secondary"
+    (click)="currentPage = currentPage + 1"
+  >
+    Next
+  </button>

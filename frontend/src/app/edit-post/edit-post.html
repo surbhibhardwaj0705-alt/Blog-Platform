@@ -1,0 +1,16 @@
+<form (ngSubmit)="updatePost()">
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" [(ngModel)]="postData.title" name="title" required>
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <input type="text" class="form-control" id="category" [(ngModel)]="postData.category" name="category" required>
+  </div>
+  <div class="mb-3">
+    <label for="content" class="form-label">Content</label>
+    <textarea class="form-control" id="content" rows="5" [(ngModel)]="postData.content" name="content" required ></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Update Post</button>
+
+</form>

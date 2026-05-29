@@ -1,0 +1,16 @@
+<div class="card p-4" >
+    <h3>Login</h3>
+    <input 
+    type="email"
+    class="form-control mb-2"
+    placeholder="Email"
+    [(ngModel)]="loginData.email"
+    >
+    <input
+    type= "password"
+    class="form-control mb-2"
+    placeholder="Password"
+     [(ngModel)]="loginData.password"
+    >
+    <button class="btn btn-success  " (click)="login()">Login</button>
+</div>

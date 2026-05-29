@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow p-4">
+                <h2 class="mb-4 text-center">Create Post</h2>
+                <div class="mb-3">
+                    <label class="form-label">Blog Title</label>
+                    <input type="text"
+                     class="form-control" 
+                     placeholder="Enter Blog Title"
+                     [(ngModel)]="postData.title">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+                    <select class="form-control" [(ngModel)]="postData.category">
+                        <option value ="" >Select Category</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Education">Education</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Content</label>
+                    <ngx-editor [editor]="editor" [(ngModel)]="postData.content"></ngx-editor>
+                </div>
+                <button class="btn btn-primary w-100" (click)="createPost()">Publish Blog</button>
+            </div>
+        </div>
+    </div>
+</div>
