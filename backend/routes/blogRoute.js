@@ -16,6 +16,7 @@ router.get('/posts', async (req,res) =>{
     res.json(posts);
 });
 
+
 // Get a single blog post by ID
 router.get('/posts/:id', async (req,res) =>{
     const post = await Post.findById(req.params.id);
@@ -34,8 +35,16 @@ router.put('/posts/:id', async (req, res) =>{
 
 // Delete a blog post by ID
 router.delete('/posts/:id',async (req,res) =>{
-    await Post.findByIdAndDelete(req.params.id);
-    res.json({message: "Post deleted"});
+    try{
+        await Post.findOneAndDelete(req.params.id);
+        res.status(200).json({
+            message: 'Post deleted successfully'
+        });
+    } catch (error){
+        res.status(500).json({
+            error: error.message
+        });
+    }
 });
 
 export default router;
