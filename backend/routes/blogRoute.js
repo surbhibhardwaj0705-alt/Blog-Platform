@@ -25,12 +25,12 @@ router.get('/posts/:id', async (req,res) =>{
 
 // Update a blog post by ID
 router.put('/posts/:id', async (req, res) =>{
-    const post = await Post.findByIdAndUpdate(
+    const updatedPost = await Post.findByIdAndUpdate(
         req.params.id,
         req.body,
-        {new: true}
+        {returnDocument: 'after'}
     );
-    res.json(post);
+    res.json(updatedPost);
 });
 
 // Delete a blog post by ID
